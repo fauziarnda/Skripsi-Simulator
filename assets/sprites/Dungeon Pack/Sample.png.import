@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpijx7mweiy5g"
-path="res://.godot/imported/Preview.png-8c80426bd3af55220d2ce1ea4b9aa937.ctex"
+uid="uid://dh7nvstajy3j3"
+path="res://.godot/imported/Sample.png-d07ac8a329f46879c5585415dd0cdb31.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/City Pack/Preview.png"
-dest_files=["res://.godot/imported/Preview.png-8c80426bd3af55220d2ce1ea4b9aa937.ctex"]
+source_file="res://assets/sprites/Dungeon Pack/Sample.png"
+dest_files=["res://.godot/imported/Sample.png-d07ac8a329f46879c5585415dd0cdb31.ctex"]
 
 [params]
 

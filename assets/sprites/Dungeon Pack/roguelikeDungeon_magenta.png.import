@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpijx7mweiy5g"
-path="res://.godot/imported/Preview.png-8c80426bd3af55220d2ce1ea4b9aa937.ctex"
+uid="uid://dqfq6exwnws2l"
+path="res://.godot/imported/roguelikeDungeon_magenta.png-0f64b881565b469ad1534a4f916629cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/City Pack/Preview.png"
-dest_files=["res://.godot/imported/Preview.png-8c80426bd3af55220d2ce1ea4b9aa937.ctex"]
+source_file="res://assets/sprites/Dungeon Pack/roguelikeDungeon_magenta.png"
+dest_files=["res://.godot/imported/roguelikeDungeon_magenta.png-0f64b881565b469ad1534a4f916629cc.ctex"]
 
 [params]
 

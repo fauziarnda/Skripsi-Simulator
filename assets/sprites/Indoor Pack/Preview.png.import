@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpijx7mweiy5g"
-path="res://.godot/imported/Preview.png-8c80426bd3af55220d2ce1ea4b9aa937.ctex"
+uid="uid://jcgrdlqu8mn2"
+path="res://.godot/imported/Preview.png-48f38386c73c72c70b4addfa81f3d776.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/City Pack/Preview.png"
-dest_files=["res://.godot/imported/Preview.png-8c80426bd3af55220d2ce1ea4b9aa937.ctex"]
+source_file="res://assets/sprites/Indoor Pack/Preview.png"
+dest_files=["res://.godot/imported/Preview.png-48f38386c73c72c70b4addfa81f3d776.ctex"]
 
 [params]
 

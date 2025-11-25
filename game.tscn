@@ -4,11 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://btyf0p2vx0hkw" path="res://scenes/tile_map_layer.tscn" id="2_e2o6t"]
 
 [node name="game" type="Node2D"]
+y_sort_enabled = true
 
 [node name="player" parent="." instance=ExtResource("1_80nbo")]
 position = Vector2(88, 155)
+wall_min_slide_angle = 0.17453292
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(4, 4)
 
 [node name="TileMapLayer" parent="." instance=ExtResource("2_e2o6t")]
+z_index = 0

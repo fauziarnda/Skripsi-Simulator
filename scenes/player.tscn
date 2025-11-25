@@ -114,11 +114,17 @@ animations = [{
 radius = 3.0
 
 [node name="player" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_mask = 16
+motion_mode = 1
 script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_oprun")
 animation = &"walk_down"
+offset = Vector2(0, 0.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_g2els")

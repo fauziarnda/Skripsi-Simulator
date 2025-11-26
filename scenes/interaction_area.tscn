@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxe7m4tkb6j1t"]
+
+[ext_resource type="Script" path="res://scripts/interaction_area.gd" id="1_interaction"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(100, 100)
+
+[node name="InteractionArea" type="Area2D"]
+script = ExtResource("1_interaction")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -50.0
+offset_top = -60.0
+offset_right = 50.0
+offset_bottom = -40.0
+text = "Press Enter"
+horizontal_alignment = 1

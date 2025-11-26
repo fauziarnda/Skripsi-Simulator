@@ -1,9 +1,17 @@
-[gd_scene load_steps=17 format=4 uid="uid://cai1k8pqdtqqp"]
+[gd_scene load_steps=28 format=4 uid="uid://cai1k8pqdtqqp"]
 
 [ext_resource type="Texture2D" uid="uid://bhjqu30sa7c5n" path="res://assets/sprites/City Pack/roguelikeCity_magenta.png" id="1_bk88e"]
 [ext_resource type="Texture2D" uid="uid://cy11kulsmxftf" path="res://assets/sprites/Dungeon Pack/roguelikeDungeon_transparent.png" id="2_r8i8a"]
 [ext_resource type="Texture2D" uid="uid://botq3q5315r85" path="res://assets/sprites/Indoor Pack/roguelikeIndoor_transparent.png" id="3_0iwa4"]
 [ext_resource type="Texture2D" uid="uid://d0e8078yqsiw6" path="res://assets/sprites/RPG Pack/roguelikeSheet_transparent.png" id="4_6l6ya"]
+[ext_resource type="Script" uid="uid://ncf3ec1lg4vo" path="res://scripts/interaction_area.gd" id="5_interaction"]
+[ext_resource type="Script" uid="uid://dt6q4pef44h0m" path="res://scripts/auto_trigger_area.gd" id="6_autotrigger"]
+[ext_resource type="Script" uid="uid://c20aw5nsac05n" path="res://scripts/door_transition.gd" id="7_door"]
+[ext_resource type="PackedScene" uid="uid://bmn8glj4jjglu" path="res://scenes/player.tscn" id="8_player"]
+[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="9_hud"]
+[ext_resource type="PackedScene" path="res://scenes/pause_menu.tscn" id="10_pause"]
+[ext_resource type="PackedScene" path="res://scenes/dialog_system.tscn" id="11_dialog"]
+[ext_resource type="Script" uid="uid://db76by4tvyc8h" path="res://scripts/indoor_scene.gd" id="12_indoor"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d13r4"]
 texture = ExtResource("1_bk88e")
@@ -6327,11 +6335,24 @@ physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_yqs16")
 sources/1 = SubResource("TileSetAtlasSource_kjn4l")
 
-[node name="Cafe Indoor" type="TileMapLayer"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cafe"]
+size = Vector2(80, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_relaxzone"]
+size = Vector2(120, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_door"]
+size = Vector2(60, 30)
+
+[node name="Cafe Indoor" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("12_indoor")
+
+[node name="Ground" type="TileMapLayer" parent="."]
 y_sort_enabled = true
 tile_set = SubResource("TileSet_hnj7u")
 
-[node name="Ground" type="TileMapLayer" parent="."]
+[node name="Ground2" type="TileMapLayer" parent="."]
 z_index = -1
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAAAAMAAAAQAAsAAAAAAAQAAAAQAAsAAAAAAAUAAAAQAAsAAAAAAAYAAAAQAAsAAAAAAAcAAAAQAAsAAAAAAAgAAAAQAAsAAAAAAAkAAAAQAAsAAAAAAAoAAAAQAAsAAAAAAAsAAAAQAAsAAAAAAAwAAAAQAAsAAAABAAMAAAAQAAsAAAABAAQAAAAQAAsAAAABAAUAAAAQAAsAAAABAAYAAAAQAAsAAAABAAcAAAAQAAsAAAABAAgAAAAQAAsAAAABAAkAAAAQAAsAAAABAAoAAAAQAAsAAAABAAsAAAAQAAsAAAABAAwAAAAQAAsAAAACAAMAAAAQAAsAAAACAAQAAAAQAAsAAAACAAUAAAAQAAsAAAACAAYAAAAQAAsAAAACAAcAAAAQAAsAAAACAAgAAAAQAAsAAAACAAkAAAAQAAsAAAACAAoAAAAQAAsAAAACAAsAAAAQAAsAAAACAAwAAAAQAAsAAAADAAMAAAAQAAsAAAADAAQAAAAQAAsAAAADAAUAAAAQAAsAAAADAAYAAAAQAAsAAAADAAcAAAAQAAsAAAADAAgAAAAQAAsAAAADAAkAAAAQAAsAAAADAAoAAAAQAAsAAAADAAsAAAAQAAsAAAADAAwAAAAQAAsAAAAEAAMAAAAQAAsAAAAEAAQAAAAQAAsAAAAEAAUAAAAQAAsAAAAEAAYAAAAQAAsAAAAEAAcAAAAQAAsAAAAEAAgAAAAQAAsAAAAEAAkAAAAQAAsAAAAEAAoAAAAQAAsAAAAEAAsAAAAQAAsAAAAEAAwAAAAQAAsAAAAFAAMAAAAQAAsAAAAFAAQAAAAQAAsAAAAFAAUAAAAQAAsAAAAFAAYAAAAQAAsAAAAFAAcAAAAQAAsAAAAFAAgAAAAQAAsAAAAFAAkAAAAQAAsAAAAFAAoAAAAQAAsAAAAFAAsAAAAQAAsAAAAFAAwAAAAQAAsAAAAGAAMAAAAQAAsAAAAGAAQAAAAQAAsAAAAGAAUAAAAQAAsAAAAGAAYAAAAQAAsAAAAGAAcAAAAQAAsAAAAGAAgAAAAQAAsAAAAGAAkAAAAQAAsAAAAGAAoAAAAQAAsAAAAGAAsAAAAQAAsAAAAGAAwAAAAQAAsAAAAHAAMAAAAQAAsAAAAHAAQAAAAQAAsAAAAHAAUAAAAQAAsAAAAHAAYAAAAQAAsAAAAHAAcAAAAQAAsAAAAHAAgAAAAQAAsAAAAHAAkAAAAQAAsAAAAHAAoAAAAQAAsAAAAHAAsAAAAQAAsAAAAHAAwAAAAQAAsAAAAIAAMAAAAQAAsAAAAIAAQAAAAQAAsAAAAIAAUAAAAQAAsAAAAIAAYAAAAQAAsAAAAIAAcAAAAQAAsAAAAIAAgAAAAQAAsAAAAIAAkAAAAQAAsAAAAIAAoAAAAQAAsAAAAIAAsAAAAQAAsAAAAIAAwAAAAQAAsAAAAJAAMAAAAQAAsAAAAJAAQAAAAQAAsAAAAJAAUAAAAQAAsAAAAJAAYAAAAQAAsAAAAJAAcAAAAQAAsAAAAJAAgAAAAQAAsAAAAJAAkAAAAQAAsAAAAJAAoAAAAQAAsAAAAJAAsAAAAQAAsAAAAJAAwAAAAQAAsAAAAKAAMAAAAQAAsAAAAKAAQAAAAQAAsAAAAKAAUAAAAQAAsAAAAKAAYAAAAQAAsAAAAKAAcAAAAQAAsAAAAKAAgAAAAQAAsAAAAKAAkAAAAQAAsAAAAKAAoAAAAQAAsAAAAKAAsAAAAQAAsAAAAKAAwAAAAQAAsAAAALAAMAAAAQAAsAAAALAAQAAAAQAAsAAAALAAUAAAAQAAsAAAALAAYAAAAQAAsAAAALAAcAAAAQAAsAAAALAAgAAAAQAAsAAAALAAkAAAAQAAsAAAALAAoAAAAQAAsAAAALAAsAAAAQAAsAAAALAAwAAAAQAAsAAAAMAAMAAAAQAAsAAAAMAAQAAAAQAAsAAAAMAAUAAAAQAAsAAAAMAAYAAAAQAAsAAAAMAAcAAAAQAAsAAAAMAAgAAAAQAAsAAAAMAAkAAAAQAAsAAAAMAAoAAAAQAAsAAAAMAAsAAAAQAAsAAAAMAAwAAAAQAAsAAAANAAMAAAAQAAsAAAANAAQAAAAQAAsAAAANAAUAAAAQAAsAAAANAAYAAAAQAAsAAAANAAcAAAAQAAsAAAANAAgAAAAQAAsAAAANAAkAAAAQAAsAAAANAAoAAAAQAAsAAAANAAsAAAAQAAsAAAANAAwAAAAQAAsAAAAOAAMAAAAQAAsAAAAOAAQAAAAQAAsAAAAOAAUAAAAQAAsAAAAOAAYAAAAQAAsAAAAOAAcAAAAQAAsAAAAOAAgAAAAQAAsAAAAOAAkAAAAQAAsAAAAOAAoAAAAQAAsAAAAOAAsAAAAQAAsAAAAOAAwAAAAQAAsAAAAPAAMAAAAQAAsAAAAPAAQAAAAQAAsAAAAPAAUAAAAQAAsAAAAPAAYAAAAQAAsAAAAPAAcAAAAQAAsAAAAPAAgAAAAQAAsAAAAPAAkAAAAQAAsAAAAPAAoAAAAQAAsAAAAPAAsAAAAQAAsAAAAPAAwAAAAQAAsAAAAQAAMAAAAQAAsAAAAQAAQAAAAQAAsAAAAQAAUAAAAQAAsAAAAQAAYAAAAQAAsAAAAQAAcAAAAQAAsAAAAQAAgAAAAQAAsAAAAQAAkAAAAQAAsAAAAQAAoAAAAQAAsAAAAQAAsAAAAQAAsAAAAQAAwAAAAQAAsAAAA=")
@@ -6346,3 +6367,62 @@ tile_set = SubResource("TileSet_yjdud")
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAACAAUAAAAJABAAAAADAAUAAAAJABAAAAAEAAUAAAAJABAAAAAFAAUAAAAJABAAAAAGAAUAAAAKABAAAAABAAMAAAAOAA4AAAACAAMAAAAOAA4AAAADAAMAAAAIAA8AAAAEAAMAAAAJAA8AAAAGAAMAAQAcAAQAAAAFAAMAAAAKAA8AAAABAAIAAQAfAAMAAAACAAIAAQAfAAQAAAABAAEAAQAcAAIAAAACAAEAAQAcAAIAAAADAAEAAQAtAA0AAAAEAAEAAQAyAA0AAAADAAIAAQAfAAIAAAAEAAIAAQAfAAIAAAAFAAEAAQAdAAIAAAAGAAEAAQAdAAIAAAAFAAIAAQAeAAIAAAAGAAIAAQAcAAMAAAABAAUAAAAJABAAAAAPAAMAAQAMAAYAAAAOAAMAAQAKAAUAAAAOAAIAAQAMAAUAAAAPAAIAAQAKAAYAAAAOAAEAAQAKAAUAAAAPAAEAAQAKAAYAAAAMAAIAAQAZAAcAAAAMAAMAAQAZAAgAAAANAAEAAQAeAAoAAAALAAEAAQAdAAoAAAAMAAEAAQAfAAoAAAABAAYAAAAAAAIAAAABAAcAAAAHAAAAAAABAAgAAAABAAQAAAAOAAUAAAAHAAQAAAAOAAYAAAABAAIAAAAPAAUAAAAHAAQAAAAPAAYAAAABAAIAAAAOAAQAAAAAAAIAAAAPAAQAAAAAAAIAAAAOAAcAAAAAAAIAAAAOAAgAAAAHAAQAAAAPAAcAAAAAAAIAAAAPAAgAAAAHAAQAAAADAAYAAAAAAAIAAAADAAcAAAAHAAAAAAADAAgAAAABAAQAAAALAAQAAAAAAAIAAAALAAUAAAAHAAQAAAALAAYAAAABAAIAAAALAAcAAAAAAAIAAAALAAgAAAAHAAQAAAAKAAQAAAAAAAIAAAAKAAUAAAAHAAQAAAAKAAYAAAABAAIAAAAKAAcAAAAAAAIAAAAKAAgAAAAHAAQAAAA=")
 tile_set = SubResource("TileSet_fdgwe")
+
+[node name="CafeInteraction" type="Area2D" parent="."]
+position = Vector2(120, 100)
+script = ExtResource("5_interaction")
+location_name = "Cafe"
+interaction_type = "cafe"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CafeInteraction"]
+shape = SubResource("RectangleShape2D_cafe")
+
+[node name="Label" type="Label" parent="CafeInteraction"]
+visible = false
+offset_left = -50.0
+offset_top = -60.0
+offset_right = 50.0
+offset_bottom = -40.0
+text = "Press Enter - Counter"
+horizontal_alignment = 1
+
+[node name="CafeRelaxZone" type="Area2D" parent="."]
+position = Vector2(150, 140)
+script = ExtResource("6_autotrigger")
+area_type = "relax"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CafeRelaxZone"]
+shape = SubResource("RectangleShape2D_relaxzone")
+debug_color = Color(0.9, 0.6, 0, 0.42)
+
+[node name="Label" type="Label" parent="CafeRelaxZone"]
+offset_left = -80.0
+offset_top = -90.0
+offset_right = 80.0
+offset_bottom = -70.0
+text = "Seating Area - Restore Motivation"
+horizontal_alignment = 1
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(150, 200)
+
+[node name="ExitDoor" type="Area2D" parent="."]
+position = Vector2(150, 220)
+script = ExtResource("7_door")
+target_scene = "res://game.tscn"
+spawn_point_name = "FromCafe"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitDoor"]
+shape = SubResource("RectangleShape2D_door")
+
+[node name="player" parent="." instance=ExtResource("8_player")]
+position = Vector2(150, 200)
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+zoom = Vector2(4, 4)
+
+[node name="HUD" parent="." instance=ExtResource("9_hud")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("10_pause")]
+
+[node name="DialogSystem" parent="." instance=ExtResource("11_dialog")]

@@ -1,0 +1,106 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckvj44fy3nvqp"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_hud"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_hud")
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopBar" type="HBoxContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 30.0
+grow_horizontal = 2
+
+[node name="SemesterLabel" type="Label" parent="HUD/TopBar"]
+layout_mode = 2
+text = "Semester: 7"
+
+[node name="Space" type="Control" parent="HUD/TopBar"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="TimeLabel" type="Label" parent="HUD/TopBar"]
+layout_mode = 2
+text = "Time: 15:00"
+
+[node name="StatsBar" type="VBoxContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_top = 40.0
+offset_bottom = 140.0
+grow_horizontal = 0
+
+[node name="MotivationLabel" type="Label" parent="HUD/StatsBar"]
+layout_mode = 2
+text = "Motivasi: 50%"
+
+[node name="MotivationBar" type="ProgressBar" parent="HUD/StatsBar"]
+layout_mode = 2
+max_value = 100.0
+value = 50.0
+show_percentage = false
+
+[node name="Space" type="Control" parent="HUD/StatsBar"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="StaminaLabel" type="Label" parent="HUD/StatsBar"]
+layout_mode = 2
+text = "Stamina: 50%"
+
+[node name="StaminaBar" type="ProgressBar" parent="HUD/StatsBar"]
+layout_mode = 2
+max_value = 100.0
+value = 50.0
+show_percentage = false
+
+[node name="ProgressBar" type="VBoxContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -60.0
+offset_right = 300.0
+grow_vertical = 0
+
+[node name="ProgressLabel" type="Label" parent="HUD/ProgressBar"]
+layout_mode = 2
+text = "Progress Skripsi: 0%"
+
+[node name="ThesisProgressBar" type="ProgressBar" parent="HUD/ProgressBar"]
+layout_mode = 2
+max_value = 100.0
+show_percentage = false
+
+[node name="InfoBar" type="VBoxContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -80.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="AdvisorLabel" type="Label" parent="HUD/InfoBar"]
+layout_mode = 2
+text = "Dosen: Belum dipilih"
+
+[node name="TopicLabel" type="Label" parent="HUD/InfoBar"]
+layout_mode = 2
+text = "Topik: Belum dipilih"

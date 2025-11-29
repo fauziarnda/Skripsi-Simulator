@@ -28,6 +28,11 @@ wall_min_slide_angle = 0.17453292
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(4, 4)
+limit_left = 0
+limit_top = 0
+limit_right = 1344
+limit_bottom = 784
+editor_draw_limits = true
 
 [node name="TileMapLayer" parent="." instance=ExtResource("2_e2o6t")]
 z_index = 0

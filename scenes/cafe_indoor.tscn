@@ -8,9 +8,9 @@
 [ext_resource type="Script" uid="uid://dt6q4pef44h0m" path="res://scripts/auto_trigger_area.gd" id="6_autotrigger"]
 [ext_resource type="Script" uid="uid://c20aw5nsac05n" path="res://scripts/door_transition.gd" id="7_door"]
 [ext_resource type="PackedScene" uid="uid://bmn8glj4jjglu" path="res://scenes/player.tscn" id="8_player"]
-[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="9_hud"]
-[ext_resource type="PackedScene" path="res://scenes/pause_menu.tscn" id="10_pause"]
-[ext_resource type="PackedScene" path="res://scenes/dialog_system.tscn" id="11_dialog"]
+[ext_resource type="PackedScene" uid="uid://ckvj44fy3nvqp" path="res://scenes/hud.tscn" id="9_hud"]
+[ext_resource type="PackedScene" uid="uid://dkp7y3r2mj8qa" path="res://scenes/pause_menu.tscn" id="10_pause"]
+[ext_resource type="PackedScene" uid="uid://b0gq5ks4d6gmu" path="res://scenes/dialog_system.tscn" id="11_dialog"]
 [ext_resource type="Script" uid="uid://db76by4tvyc8h" path="res://scripts/indoor_scene.gd" id="12_indoor"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d13r4"]
@@ -6342,7 +6342,7 @@ size = Vector2(80, 80)
 size = Vector2(120, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_door"]
-size = Vector2(60, 30)
+size = Vector2(32, 30.5)
 
 [node name="Cafe Indoor" type="Node2D"]
 y_sort_enabled = true
@@ -6404,7 +6404,7 @@ text = "Seating Area - Restore Motivation"
 horizontal_alignment = 1
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(150, 200)
+position = Vector2(128, 200)
 
 [node name="ExitDoor" type="Area2D" parent="."]
 position = Vector2(150, 220)
@@ -6413,13 +6413,19 @@ target_scene = "res://game.tscn"
 spawn_point_name = "FromCafe"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitDoor"]
+position = Vector2(-22, -27.25)
 shape = SubResource("RectangleShape2D_door")
 
 [node name="player" parent="." instance=ExtResource("8_player")]
-position = Vector2(150, 200)
+position = Vector2(128, 200)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(4, 4)
+limit_left = 0
+limit_top = 0
+limit_right = 272
+limit_bottom = 208
+editor_draw_limits = true
 
 [node name="HUD" parent="." instance=ExtResource("9_hud")]
 

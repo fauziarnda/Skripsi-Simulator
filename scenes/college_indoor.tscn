@@ -6,9 +6,9 @@
 [ext_resource type="Script" uid="uid://ncf3ec1lg4vo" path="res://scripts/interaction_area.gd" id="6_interaction"]
 [ext_resource type="Script" uid="uid://c20aw5nsac05n" path="res://scripts/door_transition.gd" id="7_door"]
 [ext_resource type="PackedScene" uid="uid://bmn8glj4jjglu" path="res://scenes/player.tscn" id="8_player"]
-[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="9_hud"]
-[ext_resource type="PackedScene" path="res://scenes/pause_menu.tscn" id="10_pause"]
-[ext_resource type="PackedScene" path="res://scenes/dialog_system.tscn" id="11_dialog"]
+[ext_resource type="PackedScene" uid="uid://ckvj44fy3nvqp" path="res://scenes/hud.tscn" id="9_hud"]
+[ext_resource type="PackedScene" uid="uid://dkp7y3r2mj8qa" path="res://scenes/pause_menu.tscn" id="10_pause"]
+[ext_resource type="PackedScene" uid="uid://b0gq5ks4d6gmu" path="res://scenes/dialog_system.tscn" id="11_dialog"]
 [ext_resource type="Script" uid="uid://db76by4tvyc8h" path="res://scripts/indoor_scene.gd" id="12_indoor"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t5mgs"]
@@ -3275,6 +3275,10 @@ position = Vector2(150, 200)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(4, 4)
+limit_left = 0
+limit_top = 0
+limit_right = 352
+limit_bottom = 256
 
 [node name="HUD" parent="." instance=ExtResource("9_hud")]
 

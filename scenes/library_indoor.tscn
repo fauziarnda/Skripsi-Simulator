@@ -1,26 +1,17 @@
-[gd_scene load_steps=26 format=4 uid="uid://bgwie5jteox37"]
+[gd_scene load_steps=28 format=4 uid="uid://bgwie5jteox37"]
 
 [ext_resource type="Texture2D" uid="uid://cy11kulsmxftf" path="res://assets/sprites/Dungeon Pack/roguelikeDungeon_transparent.png" id="1_jsaqo"]
 [ext_resource type="Texture2D" uid="uid://botq3q5315r85" path="res://assets/sprites/Indoor Pack/roguelikeIndoor_transparent.png" id="2_p1j40"]
 [ext_resource type="Texture2D" uid="uid://d0e8078yqsiw6" path="res://assets/sprites/RPG Pack/roguelikeSheet_transparent.png" id="3_5i68w"]
 [ext_resource type="Texture2D" uid="uid://bhjqu30sa7c5n" path="res://assets/sprites/City Pack/roguelikeCity_magenta.png" id="4_xlddw"]
 [ext_resource type="PackedScene" uid="uid://bmn8glj4jjglu" path="res://scenes/player.tscn" id="5_p1j40"]
-[ext_resource type="Script" path="res://scripts/interaction_area.gd" id="6_interaction"]
-[ext_resource type="Script" path="res://scripts/auto_trigger_area.gd" id="7_autotrigger"]
-[ext_resource type="Script" path="res://scripts/door_transition.gd" id="8_door"]
+[ext_resource type="Script" uid="uid://ncf3ec1lg4vo" path="res://scripts/interaction_area.gd" id="6_interaction"]
+[ext_resource type="Script" uid="uid://dt6q4pef44h0m" path="res://scripts/auto_trigger_area.gd" id="7_autotrigger"]
+[ext_resource type="Script" uid="uid://c20aw5nsac05n" path="res://scripts/door_transition.gd" id="8_door"]
 [ext_resource type="PackedScene" uid="uid://ckvj44fy3nvqp" path="res://scenes/hud.tscn" id="9_hud"]
 [ext_resource type="PackedScene" uid="uid://dkp7y3r2mj8qa" path="res://scenes/pause_menu.tscn" id="10_pause"]
 [ext_resource type="PackedScene" uid="uid://b0gq5ks4d6gmu" path="res://scenes/dialog_system.tscn" id="11_dialog"]
-[ext_resource type="Script" path="res://scripts/indoor_scene.gd" id="12_indoor"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_library"]
-size = Vector2(80, 80)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_workzone"]
-size = Vector2(150, 100)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_door"]
-size = Vector2(60, 30)
+[ext_resource type="Script" uid="uid://db76by4tvyc8h" path="res://scripts/indoor_scene.gd" id="12_indoor"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_76kxo"]
 texture = ExtResource("1_jsaqo")
@@ -6553,6 +6544,15 @@ physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_5u143")
 sources/2 = SubResource("TileSetAtlasSource_70r5d")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_library"]
+size = Vector2(80, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_workzone"]
+size = Vector2(150, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_door"]
+size = Vector2(32, 22)
+
 [node name="Library Indoor" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("12_indoor")
@@ -6561,7 +6561,7 @@ script = ExtResource("12_indoor")
 y_sort_enabled = true
 tile_set = SubResource("TileSet_pe07w")
 
-[node name="Ground" type="TileMapLayer" parent="."]
+[node name="Ground2" type="TileMapLayer" parent="."]
 z_index = -1
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAAAAMAAQAQAAsAAAAAAAQAAQAQAAsAAAAAAAUAAQAQAAsAAAAAAAYAAQAQAAsAAAAAAAcAAQAQAAsAAAAAAAgAAQAQAAsAAAAAAAkAAQAQAAsAAAAAAAoAAQAQAAsAAAAAAAsAAQAQAAsAAAAAAAwAAQAQAAsAAAAAAA0AAQAQAAsAAAABAAMAAQAQAAsAAAABAAQAAQAQAAsAAAABAAUAAQAQAAsAAAABAAYAAQAQAAsAAAABAAcAAQAQAAsAAAABAAgAAQAQAAsAAAABAAkAAQAQAAsAAAABAAoAAQAQAAsAAAABAAsAAQAQAAsAAAABAAwAAQAQAAsAAAABAA0AAQAQAAsAAAACAAMAAQAQAAsAAAACAAQAAQAQAAsAAAACAAUAAQAQAAsAAAACAAYAAQAQAAsAAAACAAcAAQAQAAsAAAACAAgAAQAQAAsAAAACAAkAAQAQAAsAAAACAAoAAQAQAAsAAAACAAsAAQAQAAsAAAACAAwAAQAQAAsAAAACAA0AAQAQAAsAAAADAAMAAQAQAAsAAAADAAQAAQAQAAsAAAADAAUAAQAQAAsAAAADAAYAAQAQAAsAAAADAAcAAQAQAAsAAAADAAgAAQAQAAsAAAADAAkAAQAQAAsAAAADAAoAAQAQAAsAAAADAAsAAQAQAAsAAAADAAwAAQAQAAsAAAADAA0AAQAQAAsAAAAEAAMAAQAQAAsAAAAEAAQAAQAQAAsAAAAEAAUAAQAQAAsAAAAEAAYAAQAQAAsAAAAEAAcAAQAQAAsAAAAEAAgAAQAQAAsAAAAEAAkAAQAQAAsAAAAEAAoAAQAQAAsAAAAEAAsAAQAQAAsAAAAEAAwAAQAQAAsAAAAEAA0AAQAQAAsAAAAFAAMAAQAQAAsAAAAFAAQAAQAQAAsAAAAFAAUAAQAQAAsAAAAFAAYAAQAQAAsAAAAFAAcAAQAQAAsAAAAFAAgAAQAQAAsAAAAFAAkAAQAQAAsAAAAFAAoAAQAQAAsAAAAFAAsAAQAQAAsAAAAFAAwAAQAQAAsAAAAFAA0AAQAQAAsAAAAGAAMAAQAQAAsAAAAGAAQAAQAQAAsAAAAGAAUAAQAQAAsAAAAGAAYAAQAQAAsAAAAGAAcAAQAQAAsAAAAGAAgAAQAQAAsAAAAGAAkAAQAQAAsAAAAGAAoAAQAQAAsAAAAGAAsAAQAQAAsAAAAGAAwAAQAQAAsAAAAGAA0AAQAQAAsAAAAHAAMAAQAQAAsAAAAHAAQAAQAQAAsAAAAHAAUAAQAQAAsAAAAHAAYAAQAQAAsAAAAHAAcAAQAQAAsAAAAHAAgAAQAQAAsAAAAHAAkAAQAQAAsAAAAHAAoAAQAQAAsAAAAHAAsAAQAQAAsAAAAHAAwAAQAQAAsAAAAHAA0AAQAQAAsAAAAIAAMAAQAQAAsAAAAIAAQAAQAQAAsAAAAIAAUAAQAQAAsAAAAIAAYAAQAQAAsAAAAIAAcAAQAQAAsAAAAIAAgAAQAQAAsAAAAIAAkAAQAQAAsAAAAIAAoAAQAQAAsAAAAIAAsAAQAQAAsAAAAIAAwAAQAQAAsAAAAIAA0AAQAQAAsAAAAJAAMAAQAQAAsAAAAJAAQAAQAQAAsAAAAJAAUAAQAQAAsAAAAJAAYAAQAQAAsAAAAJAAcAAQAQAAsAAAAJAAgAAQAQAAsAAAAJAAkAAQAQAAsAAAAJAAoAAQAQAAsAAAAJAAsAAQAQAAsAAAAJAAwAAQAQAAsAAAAJAA0AAQAQAAsAAAAKAAMAAQAQAAsAAAAKAAQAAQAQAAsAAAAKAAUAAQAQAAsAAAAKAAYAAQAQAAsAAAAKAAcAAQAQAAsAAAAKAAgAAQAQAAsAAAAKAAkAAQAQAAsAAAAKAAoAAQAQAAsAAAAKAAsAAQAQAAsAAAAKAAwAAQAQAAsAAAAKAA0AAQAQAAsAAAALAAMAAQAQAAsAAAALAAQAAQAQAAsAAAALAAUAAQAQAAsAAAALAAYAAQAQAAsAAAALAAcAAQAQAAsAAAALAAgAAQAQAAsAAAALAAkAAQAQAAsAAAALAAoAAQAQAAsAAAALAAsAAQAQAAsAAAALAAwAAQAQAAsAAAALAA0AAQAQAAsAAAAMAAMAAQAQAAsAAAAMAAQAAQAQAAsAAAAMAAUAAQAQAAsAAAAMAAYAAQAQAAsAAAAMAAcAAQAQAAsAAAAMAAgAAQAQAAsAAAAMAAkAAQAQAAsAAAAMAAoAAQAQAAsAAAAMAAsAAQAQAAsAAAAMAAwAAQAQAAsAAAAMAA0AAQAQAAsAAAANAAMAAQAQAAsAAAANAAQAAQAQAAsAAAANAAUAAQAQAAsAAAANAAYAAQAQAAsAAAANAAcAAQAQAAsAAAANAAgAAQAQAAsAAAANAAkAAQAQAAsAAAANAAoAAQAQAAsAAAANAAsAAQAQAAsAAAANAAwAAQAQAAsAAAANAA0AAQAQAAsAAAAOAAMAAQAQAAsAAAAOAAQAAQAQAAsAAAAOAAUAAQAQAAsAAAAOAAYAAQAQAAsAAAAOAAcAAQAQAAsAAAAOAAgAAQAQAAsAAAAOAAkAAQAQAAsAAAAOAAoAAQAQAAsAAAAOAAsAAQAQAAsAAAAOAAwAAQAQAAsAAAAOAA0AAQAQAAsAAAAPAAMAAQAQAAsAAAAPAAQAAQAQAAsAAAAPAAUAAQAQAAsAAAAPAAYAAQAQAAsAAAAPAAcAAQAQAAsAAAAPAAgAAQAQAAsAAAAPAAkAAQAQAAsAAAAPAAoAAQAQAAsAAAAPAAsAAQAQAAsAAAAPAAwAAQAQAAsAAAAPAA0AAQAQAAsAAAAQAAMAAQAQAAsAAAAQAAQAAQAQAAsAAAAQAAUAAQAQAAsAAAAQAAYAAQAQAAsAAAAQAAcAAQAQAAsAAAAQAAgAAQAQAAsAAAAQAAkAAQAQAAsAAAAQAAoAAQAQAAsAAAAQAAsAAQAQAAsAAAAQAAwAAQAQAAsAAAAQAA0AAQAQAAsAAAARAAMAAQAQAAsAAAARAAQAAQAQAAsAAAARAAUAAQAQAAsAAAARAAYAAQAQAAsAAAARAAcAAQAQAAsAAAARAAgAAQAQAAsAAAARAAkAAQAQAAsAAAARAAoAAQAQAAsAAAARAAsAAQAQAAsAAAARAAwAAQAQAAsAAAARAA0AAQAQAAsAAAASAAMAAQAQAAsAAAASAAQAAQAQAAsAAAASAAUAAQAQAAsAAAASAAYAAQAQAAsAAAASAAcAAQAQAAsAAAASAAgAAQAQAAsAAAASAAkAAQAQAAsAAAASAAoAAQAQAAsAAAASAAsAAQAQAAsAAAASAAwAAQAQAAsAAAASAA0AAQAQAAsAAAATAAMAAQAQAAsAAAATAAQAAQAQAAsAAAATAAUAAQAQAAsAAAATAAYAAQAQAAsAAAATAAcAAQAQAAsAAAATAAgAAQAQAAsAAAATAAkAAQAQAAsAAAATAAoAAQAQAAsAAAATAAsAAQAQAAsAAAATAAwAAQAQAAsAAAATAA0AAQAQAAsAAAAUAAMAAQAQAAsAAAAUAAQAAQAQAAsAAAAUAAUAAQAQAAsAAAAUAAYAAQAQAAsAAAAUAAcAAQAQAAsAAAAUAAgAAQAQAAsAAAAUAAkAAQAQAAsAAAAUAAoAAQAQAAsAAAAUAAsAAQAQAAsAAAAUAAwAAQAQAAsAAAAUAA0AAQAQAAsAAAAVAAMAAQAQAAsAAAAVAAQAAQAQAAsAAAAVAAUAAQAQAAsAAAAVAAYAAQAQAAsAAAAVAAcAAQAQAAsAAAAVAAgAAQAQAAsAAAAVAAkAAQAQAAsAAAAVAAoAAQAQAAsAAAAVAAsAAQAQAAsAAAAVAAwAAQAQAAsAAAAVAA0AAQAQAAsAAAA=")
@@ -6582,10 +6582,14 @@ position = Vector2(177, 185)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(4, 4)
+limit_left = 0
+limit_top = 0
+limit_right = 352
+limit_bottom = 225
+editor_draw_limits = true
 
 [node name="LibraryInteraction" type="Area2D" parent="."]
 position = Vector2(150, 120)
-collision_mask = 1
 script = ExtResource("6_interaction")
 location_name = "Library"
 interaction_type = "library"
@@ -6594,29 +6598,26 @@ interaction_type = "library"
 shape = SubResource("RectangleShape2D_library")
 
 [node name="Label" type="Label" parent="LibraryInteraction"]
-offset_left = -50.0
-offset_top = -60.0
-offset_right = 50.0
-offset_bottom = -40.0
+visible = false
+offset_left = -59.0
+offset_top = -58.0
+offset_right = 112.0
+offset_bottom = -35.0
 text = "Press Enter - Librarian"
 horizontal_alignment = 1
-visible = false
 
 [node name="LibraryWorkZone" type="Area2D" parent="."]
 position = Vector2(180, 150)
-collision_mask = 1
 script = ExtResource("7_autotrigger")
-area_type = "work"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LibraryWorkZone"]
 shape = SubResource("RectangleShape2D_workzone")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Label" type="Label" parent="LibraryWorkZone"]
-offset_left = -80.0
-offset_top = -90.0
-offset_right = 80.0
-offset_bottom = -70.0
+offset_left = -109.0
+offset_top = -106.0
+offset_right = 107.0
+offset_bottom = -83.0
 text = "Study Area - Work on Thesis"
 horizontal_alignment = 1
 
@@ -6624,13 +6625,13 @@ horizontal_alignment = 1
 position = Vector2(177, 220)
 
 [node name="ExitDoor" type="Area2D" parent="."]
-position = Vector2(177, 240)
-collision_mask = 1
+position = Vector2(177, 209)
 script = ExtResource("8_door")
 target_scene = "res://game.tscn"
 spawn_point_name = "FromLibrary"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitDoor"]
+position = Vector2(-1, 4)
 shape = SubResource("RectangleShape2D_door")
 
 [node name="HUD" parent="." instance=ExtResource("9_hud")]

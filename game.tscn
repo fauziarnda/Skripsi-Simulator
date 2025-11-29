@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://bmn8glj4jjglu" path="res://scenes/player.tscn" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://btyf0p2vx0hkw" path="res://scenes/tile_map_layer.tscn" id="2_e2o6t"]
-[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="3_hud"]
-[ext_resource type="PackedScene" path="res://scenes/pause_menu.tscn" id="4_pause"]
-[ext_resource type="PackedScene" path="res://scenes/dialog_system.tscn" id="5_dialog"]
+[ext_resource type="PackedScene" uid="uid://ckvj44fy3nvqp" path="res://scenes/hud.tscn" id="3_hud"]
+[ext_resource type="PackedScene" uid="uid://dkp7y3r2mj8qa" path="res://scenes/pause_menu.tscn" id="4_pause"]
+[ext_resource type="PackedScene" uid="uid://b0gq5ks4d6gmu" path="res://scenes/dialog_system.tscn" id="5_dialog"]
 [ext_resource type="Script" uid="uid://b6xbv7gyd51je" path="res://scripts/game_scene.gd" id="7_gamescene"]
 [ext_resource type="Script" uid="uid://c1r1jc242c1ep" path="res://scripts/debug_helper.gd" id="8_debug"]
 [ext_resource type="Script" uid="uid://c20aw5nsac05n" path="res://scripts/door_transition.gd" id="9_door"]
@@ -16,7 +16,7 @@ size = Vector2(100, 100)
 size = Vector2(100, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_door3"]
-size = Vector2(100, 100)
+size = Vector2(73, 78.5)
 
 [node name="game" type="Node2D"]
 y_sort_enabled = true
@@ -33,62 +33,62 @@ zoom = Vector2(4, 4)
 z_index = 0
 
 [node name="CollegeDoor" type="Area2D" parent="."]
-position = Vector2(414, 621)
+position = Vector2(608, 624)
 script = ExtResource("9_door")
 target_scene = "res://scenes/college_indoor.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollegeDoor"]
-position = Vector2(0, 1)
+position = Vector2(1, -33)
 shape = SubResource("RectangleShape2D_door1")
 
 [node name="Label" type="Label" parent="CollegeDoor"]
-offset_left = -50.0
+offset_left = -61.0
 offset_top = -60.0
-offset_right = 50.0
-offset_bottom = -40.0
+offset_right = 63.0
+offset_bottom = -37.0
 text = "College Building"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="LibraryDoor" type="Area2D" parent="."]
-position = Vector2(607, 623)
+position = Vector2(560, 208)
 script = ExtResource("9_door")
 target_scene = "res://scenes/library_indoor.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LibraryDoor"]
-position = Vector2(0, 3)
+position = Vector2(0, -34)
 shape = SubResource("RectangleShape2D_door2")
 
 [node name="Label" type="Label" parent="LibraryDoor"]
 offset_left = -50.0
-offset_top = -60.0
+offset_top = -68.0
 offset_right = 50.0
-offset_bottom = -40.0
+offset_bottom = -45.0
 text = "Library"
 horizontal_alignment = 1
 
 [node name="CafeDoor" type="Area2D" parent="."]
-position = Vector2(1015, 510)
+position = Vector2(1103, 559)
 script = ExtResource("9_door")
 target_scene = "res://scenes/cafe_indoor.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CafeDoor"]
-position = Vector2(1, 0)
+position = Vector2(2, -21.75)
 shape = SubResource("RectangleShape2D_door3")
 
 [node name="Label" type="Label" parent="CafeDoor"]
-offset_left = -50.0
-offset_top = -60.0
-offset_right = 50.0
-offset_bottom = -40.0
+offset_left = -26.0
+offset_top = -62.0
+offset_right = 27.0
+offset_bottom = -39.0
 text = "Cafe"
 horizontal_alignment = 1
 
 [node name="FromCollege" type="Marker2D" parent="."]
-position = Vector2(415, 664)
+position = Vector2(608, 640)
 
 [node name="FromLibrary" type="Marker2D" parent="."]
-position = Vector2(607, 666)
+position = Vector2(560, 223)
 
 [node name="FromCafe" type="Marker2D" parent="."]
 position = Vector2(1019, 577)

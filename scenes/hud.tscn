@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ckvj44fy3nvqp"]
 
-[ext_resource type="Script" path="res://scripts/hud.gd" id="1_hud"]
+[ext_resource type="Script" uid="uid://bdmphmvmta04b" path="res://scripts/hud.gd" id="1_hud"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_hud")
@@ -18,7 +18,10 @@ mouse_filter = 2
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 30.0
+offset_left = 21.0
+offset_top = 18.0
+offset_right = -23.0
+offset_bottom = 48.0
 grow_horizontal = 2
 
 [node name="SemesterLabel" type="Label" parent="HUD/TopBar"]
@@ -38,9 +41,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -200.0
-offset_top = 40.0
-offset_bottom = 140.0
+offset_left = -228.0
+offset_top = 23.0
+offset_right = -28.0
+offset_bottom = 123.0
 grow_horizontal = 0
 
 [node name="MotivationLabel" type="Label" parent="HUD/StatsBar"]
@@ -49,7 +53,6 @@ text = "Motivasi: 50%"
 
 [node name="MotivationBar" type="ProgressBar" parent="HUD/StatsBar"]
 layout_mode = 2
-max_value = 100.0
 value = 50.0
 show_percentage = false
 
@@ -63,7 +66,6 @@ text = "Stamina: 50%"
 
 [node name="StaminaBar" type="ProgressBar" parent="HUD/StatsBar"]
 layout_mode = 2
-max_value = 100.0
 value = 50.0
 show_percentage = false
 
@@ -72,8 +74,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -60.0
-offset_right = 300.0
+offset_left = 23.0
+offset_top = -62.0
+offset_right = 323.0
+offset_bottom = -16.0
 grow_vertical = 0
 
 [node name="ProgressLabel" type="Label" parent="HUD/ProgressBar"]
@@ -82,7 +86,6 @@ text = "Progress Skripsi: 0%"
 
 [node name="ThesisProgressBar" type="ProgressBar" parent="HUD/ProgressBar"]
 layout_mode = 2
-max_value = 100.0
 show_percentage = false
 
 [node name="InfoBar" type="VBoxContainer" parent="HUD"]
@@ -92,8 +95,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -250.0
-offset_top = -80.0
+offset_left = -223.0
+offset_top = -89.0
+offset_right = -10.0
+offset_bottom = -24.0
 grow_horizontal = 0
 grow_vertical = 0
 

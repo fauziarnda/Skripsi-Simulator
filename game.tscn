@@ -23,7 +23,7 @@ y_sort_enabled = true
 script = ExtResource("7_gamescene")
 
 [node name="player" parent="." instance=ExtResource("1_80nbo")]
-position = Vector2(88, 155)
+position = Vector2(104, 174)
 wall_min_slide_angle = 0.17453292
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -31,9 +31,10 @@ zoom = Vector2(4, 4)
 
 [node name="TileMapLayer" parent="." instance=ExtResource("2_e2o6t")]
 z_index = 0
+position = Vector2(16, 16)
 
 [node name="CollegeDoor" type="Area2D" parent="."]
-position = Vector2(608, 624)
+position = Vector2(624, 638)
 script = ExtResource("9_door")
 target_scene = "res://scenes/college_indoor.tscn"
 
@@ -51,24 +52,24 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="LibraryDoor" type="Area2D" parent="."]
-position = Vector2(560, 208)
+position = Vector2(577, 223)
 script = ExtResource("9_door")
 target_scene = "res://scenes/library_indoor.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LibraryDoor"]
-position = Vector2(0, -34)
+position = Vector2(-1, -33)
 shape = SubResource("RectangleShape2D_door2")
 
 [node name="Label" type="Label" parent="LibraryDoor"]
 offset_left = -50.0
-offset_top = -68.0
+offset_top = -60.0
 offset_right = 50.0
-offset_bottom = -45.0
+offset_bottom = -37.0
 text = "Library"
 horizontal_alignment = 1
 
 [node name="CafeDoor" type="Area2D" parent="."]
-position = Vector2(1103, 559)
+position = Vector2(1120, 574)
 script = ExtResource("9_door")
 target_scene = "res://scenes/cafe_indoor.tscn"
 
@@ -85,13 +86,13 @@ text = "Cafe"
 horizontal_alignment = 1
 
 [node name="FromCollege" type="Marker2D" parent="."]
-position = Vector2(608, 640)
+position = Vector2(624, 647)
 
 [node name="FromLibrary" type="Marker2D" parent="."]
-position = Vector2(560, 223)
+position = Vector2(577, 233)
 
 [node name="FromCafe" type="Marker2D" parent="."]
-position = Vector2(1019, 577)
+position = Vector2(1120, 583)
 
 [node name="HUD" parent="." instance=ExtResource("3_hud")]
 
